@@ -1,0 +1,29 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+body {
+  background: #000;
+}
+
+#app {
+  height: 100vh;
+  color: #fff;
+
+  p.title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.container {
+  border: 1px dashed #fff;
+}
+
+#counter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  button {
+    margin: 0 20px;
+  }
+}
