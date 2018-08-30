@@ -1,8 +1,9 @@
+import Updator from '../model/Updator';
+
+@Updator('counter')
 export default class Count {
   constructor(model) {
     this._model = model;
-
-    const { count } = this._model;
 
     const $el = $(`
       <div class="row">
@@ -12,7 +13,7 @@ export default class Count {
         </div>
       </div>
     `);
-    const $count = $('<div>').html(count);
+    const $count = $('<div>').html(this._model.counter.count);
     const $btn_increment = $('<button type="button" class="btn btn-primary">+</button>').click(() => this.increment());
     const $btn_decrement = $('<button type="button" class="btn btn-primary">-</button>').click(() => this.decrement());
 
@@ -22,16 +23,16 @@ export default class Count {
   }
 
   increment() {
-    this._model.count = this._model.count + 1;
+    this._model.counter.count = this._model.counter.count + 1;
   }
 
   decrement() {
-    this._model.count = this._model.count - 1;
+    this._model.counter.count = this._model.counter.count - 1;
   }
 
   // re-render html
   update() {
-    this.dom.$count.html(this._model.count);
+    this.dom.$count.html(this._model.counter.count);
   }
 
   // initial html

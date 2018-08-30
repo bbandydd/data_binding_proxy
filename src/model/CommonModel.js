@@ -1,5 +1,7 @@
-export default class CommonModel {
-  constructor(data) {
+
+export default model => {
+  const _model = Object.keys(model).reduce((acc, val) => {
+    const data = model[val];
     const callbacks = [];
 
     const obj = {
@@ -17,6 +19,11 @@ export default class CommonModel {
       }
     };
 
-    return new Proxy(obj, handler);
-  }
+    return {
+      ...acc,
+      [val]: new Proxy(obj, handler)
+    }
+  }, {});
+
+  return _model;
 }

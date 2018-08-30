@@ -4,6 +4,6 @@ const counterModel = {
   count: 0
 };
 
-export default {
-  counter: new CommonModel(counterModel)
-};
+export default CommonModel({
+  counter: counterModel,
+});

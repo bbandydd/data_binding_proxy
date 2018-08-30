@@ -1,3 +1,6 @@
+import Updator from '../model/Updator';
+
+@Updator('counter')
 export default class Number {
   constructor(model) {
     this._model = model;
@@ -11,7 +14,7 @@ export default class Number {
       </div>
     `);
 
-    const $count = $('<div>').html(this._model.count);
+    const $count = $('<div>').html(this._model.counter.count);
 
     this.dom = {
       $el, $count,
@@ -21,7 +24,7 @@ export default class Number {
 
   // re-render html
   update() {
-    this.dom.$count.html(this._model.count);
+    this.dom.$count.html(this._model.counter.count);
   }
 
   // initial html
